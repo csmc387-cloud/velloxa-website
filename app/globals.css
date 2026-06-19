@@ -1,0 +1,118 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg-primary: #1A1A1A;
+  --color-bg-surface: #222222;
+  --color-bg-subtle: #2D2D2D;
+  --color-accent-lime: #BAFF7A;
+  --color-accent-cyan: #00FFCC;
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #AAAAAA;
+  --color-border: #333333;
+  --color-success: #4ADE80;
+  
+  --color-primary: #BAFF7A;
+  --color-muted: #222222;
+  --color-background: #1A1A1A;
+  --color-foreground: #FFFFFF;
+  
+  --font-sans: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+:root {
+  --background: #1A1A1A;
+  --foreground: #FFFFFF;
+  --font-sans: var(--font-space-grotesk);
+  --font-display: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom smooth scroll and typography rules */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom floating gradient animations */
+@keyframes float-slow {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  50% {
+    transform: translate(60px, -80px) scale(1.2);
+  }
+}
+
+@keyframes float-delayed {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  50% {
+    transform: translate(-80px, 60px) scale(0.85);
+  }
+}
+
+.animate-float-slow {
+  animation: float-slow 25s infinite ease-in-out;
+}
+
+.animate-float-delayed {
+  animation: float-delayed 30s infinite ease-in-out;
+}
+
+/* Focus states conforming to accessibility specs */
+*:focus-visible {
+  outline: 2px solid #BAFF7A;
+  outline-offset: 4px;
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #1A1A1A;
+}
+::-webkit-scrollbar-thumb {
+  background: #333333;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #BAFF7A;
+}
+
+/* Grainy frosted glass panel */
+.glass-panel {
+  position: relative;
+  background: rgba(0, 0, 0, 0.75) !important;
+  backdrop-filter: blur(20px) saturate(120%);
+  -webkit-backdrop-filter: blur(20px) saturate(120%);
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5) !important;
+}
+
+.glass-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.04;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  border-radius: inherit;
+  z-index: 0;
+}
+
+.glass-panel > * {
+  position: relative;
+  z-index: 2;
+}
+
+
