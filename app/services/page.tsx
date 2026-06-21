@@ -116,16 +116,16 @@ export default function Services() {
         {/* A subtle dark overlay to ensure text remains highly readable against the vibrant gradient */}
         <div className="absolute inset-0 z-0 bg-bg-primary/40 backdrop-blur-[2px]"></div>
 
-        <div className="max-w-[1280px] mx-auto px-4 md:px-8 z-10 relative text-center md:text-left">
-          <div className="max-w-3xl">
+        <div className="max-w-[1280px] mx-auto px-4 md:px-8 z-10 relative text-center flex flex-col items-center">
+          <div className="max-w-3xl mx-auto flex flex-col items-center">
             <span className="text-accent-lime font-display font-semibold uppercase tracking-wider text-xs md:text-sm mb-4 block">
               What We Do
             </span>
-            <h1 className="font-display font-bold text-4xl sm:text-5xl md:text-7xl lg:text-8xl text-white tracking-tight mb-6 flex flex-wrap gap-x-3 gap-y-1 justify-center md:justify-start items-center">
+            <h1 className="font-display font-bold text-4xl sm:text-5xl md:text-7xl lg:text-8xl text-white tracking-tight mb-6 flex flex-wrap gap-x-3 gap-y-1 justify-center items-center">
               <TextScramble className="text-white" as="span">Precision Solutions for</TextScramble>
               <TextScramble className="text-accent-cyan" as="span">Growing SMEs</TextScramble>
             </h1>
-            <p className="text-white text-base leading-relaxed max-w-2xl">
+            <p className="text-white text-base leading-relaxed max-w-2xl mx-auto">
               We leverage modern technology, clean code, and authentic communication to optimize your operations and capture search traffic.
             </p>
           </div>
@@ -135,7 +135,7 @@ export default function Services() {
       {/* Tab Selector Section */}
       <section className="bg-bg-primary/40 backdrop-blur-[2px] py-4">
         <div className="max-w-[1280px] mx-auto px-4 md:px-8">
-          <div className="flex justify-center md:justify-start gap-2 md:gap-4 overflow-x-auto scrollbar-none py-2">
+          <div className="flex justify-center gap-2 md:gap-4 overflow-x-auto scrollbar-none py-2">
             {servicesData.map((service) => (
               <button
                 key={service.id}
@@ -167,8 +167,8 @@ export default function Services() {
               className="col-start-1 row-start-1 glass-panel !bg-bg-primary/40 !backdrop-blur-[2px] rounded-3xl p-8 md:p-12 shadow-2xl grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start"
             >
               {/* Header Info: Title, Tagline and Case Study Highlight */}
-              <div className="col-span-full pb-8 flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6">
-                <div className="max-w-2xl">
+              <div className="col-span-full pb-8 flex flex-col items-center gap-8 text-center">
+                <div className="max-w-3xl">
                   <h2 className="font-display font-bold text-4xl md:text-5xl text-text-primary mb-3">
                     {activeService.title}
                   </h2>
@@ -177,8 +177,8 @@ export default function Services() {
                   </p>
                 </div>
                 
-                <Card className="border-accent-cyan/30 hover:border-accent-cyan/80 !bg-bg-primary/40 !backdrop-blur-[2px] max-w-full lg:max-w-md w-full flex-shrink-0">
-                  <div className="flex items-center gap-3 mb-2">
+                <Card className="border-accent-cyan/30 hover:border-accent-cyan/80 !bg-bg-primary/40 !backdrop-blur-[2px] max-w-full lg:max-w-xl w-full flex-shrink-0 mx-auto text-center">
+                  <div className="flex items-center justify-center gap-3 mb-3">
                     <div className="text-accent-lime font-display font-bold text-2xl">
                       {activeService.caseStudy.metric}
                     </div>
@@ -186,23 +186,23 @@ export default function Services() {
                       Impact Metrics
                     </span>
                   </div>
-                  <p className="text-text-secondary text-xs leading-relaxed">
+                  <p className="text-text-secondary text-xs leading-relaxed mx-auto max-w-md">
                     {activeService.caseStudy.details}
                   </p>
                 </Card>
               </div>
 
-              {/* Left Column: Core details */}
-              <div className="col-span-full lg:col-span-12">
-                <p className="text-text-secondary text-sm leading-relaxed mb-8 max-w-4xl">
+              {/* Core details */}
+              <div className="col-span-full lg:col-span-12 flex flex-col items-center text-center">
+                <p className="text-text-secondary text-sm leading-relaxed mb-10 max-w-4xl mx-auto">
                   {activeService.overview}
                 </p>
 
                 {/* Feature List */}
-                <h3 className="font-display font-semibold text-lg text-text-primary mb-4">
+                <h3 className="font-display font-semibold text-xl text-text-primary mb-6">
                   Key Capabilities
                 </h3>
-                <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6 mb-8 w-full max-w-4xl mx-auto text-left">
                   {activeService.features.map((feat) => (
                     <li key={feat} className="flex gap-3 text-sm text-text-secondary leading-relaxed">
                       <div className="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full bg-accent-cyan/15 flex items-center justify-center text-accent-cyan">

@@ -57,12 +57,16 @@ export async function POST(request: NextRequest) {
     const { name, email, company, serviceInterest, message } = result.data;
 
     // 3. Save Submission to the Client Intake Form (Excel) inside the workspace
-    const excelFilePath = path.join(process.cwd(), "Client Intake Form - Claude.xlsx");
+    // Note: In serverless environments (like Vercel), process.cwd() is read-only.
+    // We read from the original file (if it exists) or the /tmp file, and always write to /tmp.
+    const originalFilePath = path.join(process.cwd(), "Client Intake Form - Claude.xlsx");
+    const tmpFilePath = path.join("/tmp", "Client Intake Form - Claude.xlsx");
+    const readFilePath = fs.existsSync(tmpFilePath) ? tmpFilePath : originalFilePath;
     
     try {
-      if (fs.existsSync(excelFilePath)) {
+      if (fs.existsSync(readFilePath)) {
         const xlsx = require("xlsx");
-        const fileBuffer = fs.readFileSync(excelFilePath);
+        const fileBuffer = fs.readFileSync(readFilePath);
         const workbook = xlsx.read(fileBuffer, { type: "buffer" });
         const sheetName = workbook.SheetNames[0];
         const worksheet = workbook.Sheets[sheetName];
@@ -72,10 +76,11 @@ export async function POST(request: NextRequest) {
         xlsx.utils.sheet_add_aoa(worksheet, [[name, email, company || "N/A", serviceInterest, message]], {origin: -1});
         
         const outBuffer = xlsx.write(workbook, { type: "buffer", bookType: "xlsx" });
-        fs.writeFileSync(excelFilePath, outBuffer);
+        // Write to /tmp to avoid EROFS error on Vercel/serverless
+        fs.writeFileSync(tmpFilePath, outBuffer);
       } else {
-        console.error("Client Intake Form not found at", excelFilePath);
-        return NextResponse.json({ message: "Excel file not found at " + excelFilePath }, { status: 500 });
+        console.error("Client Intake Form not found at", readFilePath);
+        return NextResponse.json({ message: "Excel file not found at " + readFilePath }, { status: 500 });
       }
     } catch (err: any) {
       console.error("Error writing to Excel file", err);
