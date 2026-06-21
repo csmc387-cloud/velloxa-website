@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Space_Grotesk } from "next/font/google";
 import PersistentBackground from "@/components/PersistentBackground";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -38,6 +39,7 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${spaceGrotesk.variable} h-full antialiased`}
+      data-scroll-behavior="smooth"
       suppressHydrationWarning
     >
       <body className="min-h-full bg-bg-primary text-text-primary flex flex-col antialiased selection:bg-accent-lime selection:text-bg-primary relative" suppressHydrationWarning>
@@ -46,6 +48,7 @@ export default function RootLayout({
         <div className="relative z-10 w-full flex-grow flex flex-col">
           {children}
         </div>
+        <SpeedInsights />
       </body>
     </html>
   );

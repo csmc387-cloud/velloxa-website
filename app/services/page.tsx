@@ -111,7 +111,7 @@ export default function Services() {
     <>
       <Navbar />
 
-      <section className="relative py-20 border-b border-border overflow-hidden">
+      <section className="relative py-20 overflow-hidden">
         
         {/* A subtle dark overlay to ensure text remains highly readable against the vibrant gradient */}
         <div className="absolute inset-0 z-0 bg-bg-primary/40 backdrop-blur-[2px]"></div>
@@ -121,7 +121,7 @@ export default function Services() {
             <span className="text-accent-lime font-display font-semibold uppercase tracking-wider text-xs md:text-sm mb-4 block">
               What We Do
             </span>
-            <h1 className="font-display font-bold text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-white tracking-tight mb-6 flex flex-wrap gap-x-3 gap-y-1 justify-center md:justify-start items-center">
+            <h1 className="font-display font-bold text-4xl sm:text-5xl md:text-7xl lg:text-8xl text-white tracking-tight mb-6 flex flex-wrap gap-x-3 gap-y-1 justify-center md:justify-start items-center">
               <TextScramble className="text-white" as="span">Precision Solutions for</TextScramble>
               <TextScramble className="text-accent-cyan" as="span">Growing SMEs</TextScramble>
             </h1>
@@ -133,7 +133,7 @@ export default function Services() {
       </section>
 
       {/* Tab Selector Section */}
-      <section className="bg-bg-primary/40 backdrop-blur-[2px] border-b border-border py-4">
+      <section className="bg-bg-primary/40 backdrop-blur-[2px] py-4">
         <div className="max-w-[1280px] mx-auto px-4 md:px-8">
           <div className="flex justify-center md:justify-start gap-2 md:gap-4 overflow-x-auto scrollbar-none py-2">
             {servicesData.map((service) => (
@@ -156,18 +156,18 @@ export default function Services() {
 
       {/* Active Service Content Section */}
       <section className="py-20 bg-transparent min-h-[60vh]">
-        <div className="max-w-[1280px] mx-auto px-4 md:px-8">
-          <AnimatePresence mode="wait">
+        <div className="max-w-[1280px] mx-auto px-4 md:px-8 relative grid">
+          <AnimatePresence>
             <motion.div
               key={activeTab}
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -15 }}
               transition={{ duration: 0.3 }}
-              className="glass-panel !bg-bg-primary/40 !backdrop-blur-[2px] rounded-3xl p-8 md:p-12 shadow-2xl grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start"
+              className="col-start-1 row-start-1 glass-panel !bg-bg-primary/40 !backdrop-blur-[2px] rounded-3xl p-8 md:p-12 shadow-2xl grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start"
             >
               {/* Header Info: Title, Tagline and Case Study Highlight */}
-              <div className="col-span-full border-b border-border pb-8 flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6">
+              <div className="col-span-full pb-8 flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6">
                 <div className="max-w-2xl">
                   <h2 className="font-display font-bold text-4xl md:text-5xl text-text-primary mb-3">
                     {activeService.title}
@@ -215,7 +215,7 @@ export default function Services() {
               </div>
 
               {/* Our Direct Process (Horizontal & Centered Layout) */}
-              <div className="col-span-full border-t border-border/60 pt-10 mt-2">
+              <div className="col-span-full pt-10 mt-2">
                 <h3 className="font-display font-bold text-2xl text-text-primary mb-8 text-center">
                   Our Direct Process
                 </h3>

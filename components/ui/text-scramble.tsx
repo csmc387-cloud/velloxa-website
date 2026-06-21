@@ -1,5 +1,5 @@
 'use client';
-import { type JSX, useEffect, useState, useMemo } from 'react';
+import { type JSX, useEffect, useState, useRef } from 'react';
 import { motion, MotionProps } from 'framer-motion';
 
 type TextScrambleProps = {
@@ -27,21 +27,24 @@ export function TextScramble({
   onScrambleComplete,
   ...props
 }: TextScrambleProps) {
-  const MotionComponent = useMemo(() => motion.create(
-    Component as keyof JSX.IntrinsicElements
-  ), [Component]);
   const [displayText, setDisplayText] = useState(children);
-  const [isAnimating, setIsAnimating] = useState(false);
   const text = children;
 
-  const scramble = async () => {
-    if (isAnimating) return;
-    setIsAnimating(true);
+  // Use a ref to prevent onScrambleComplete changes from re-triggering the useEffect
+  const onCompleteRef = useRef(onScrambleComplete);
+  useEffect(() => {
+    onCompleteRef.current = onScrambleComplete;
+  }, [onScrambleComplete]);
 
+  useEffect(() => {
+    if (!trigger) return;
+
+    let isAnimatingNow = true;
     const steps = duration / speed;
     let step = 0;
 
     const interval = setInterval(() => {
+      if (!isAnimatingNow) return;
       let scrambled = '';
       const progress = step / steps;
 
@@ -65,22 +68,50 @@ export function TextScramble({
       if (step > steps) {
         clearInterval(interval);
         setDisplayText(text);
-        setIsAnimating(false);
-        onScrambleComplete?.();
+        onCompleteRef.current?.();
       }
     }, speed * 1000);
-  };
 
-  useEffect(() => {
-    if (!trigger) return;
+    return () => {
+      isAnimatingNow = false;
+      clearInterval(interval);
+    };
+  }, [trigger, text, duration, speed, characterSet]);
 
-    scramble();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [trigger]);
+  const classNameStr = `relative inline-block whitespace-nowrap ${className || ''}`;
+
+  const content = (
+    <>
+      {/* Invisible original text to reserve layout dimensions and prevent page/title shaking */}
+      <span className="invisible select-none pointer-events-none" aria-hidden="true">
+        {children}
+      </span>
+      {/* Absolute overlay displaying the scrambling text */}
+      <span className="absolute inset-0">
+        {displayText}
+      </span>
+    </>
+  );
+
+  if (Component === 'span') {
+    return (
+      <motion.span className={classNameStr} {...props}>
+        {content}
+      </motion.span>
+    );
+  }
+
+  if (Component === 'div') {
+    return (
+      <motion.div className={classNameStr} {...props}>
+        {content}
+      </motion.div>
+    );
+  }
 
   return (
-    <MotionComponent className={className} {...props}>
-      {displayText}
-    </MotionComponent>
+    <motion.p className={classNameStr} {...props}>
+      {content}
+    </motion.p>
   );
 }

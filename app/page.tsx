@@ -20,7 +20,7 @@ export default function Home() {
         <Navbar />
 
         {/* Hero Section */}
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden py-20 border-b border-border">
+        <section className="relative min-h-screen flex items-center justify-center overflow-hidden py-20">
 
           {/* A subtle dark overlay to ensure text remains highly readable against the vibrant gradient */}
           <div className="absolute inset-0 z-0 bg-bg-primary/40 backdrop-blur-[2px]"></div>
@@ -60,16 +60,16 @@ export default function Home() {
                 transition={{ duration: 0.6, delay: 1.0 }}
                 className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:hidden"
               >
-                <StartProjectButton href="https://www.instagram.com/velloxa.agency/" />
+                <StartProjectButton />
               </motion.div>
             </div>
           </div>
         </section>
 
         {/* Social Proof Bar */}
-        <section className="bg-transparent border-b border-border py-12">
+        <section className="bg-transparent py-12">
           <div className="max-w-[1280px] mx-auto px-4 md:px-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-4 divide-y md:divide-y-0 md:divide-x divide-border">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-4">
               <StatCounter target={2} duration={1200} prefix="More than " suffix="×" label="Average Client ROI" numberClassName="opacity-60" />
               <StatCounter target={100} duration={1200} suffix="%" label="On-Time Product Delivery" />
             </div>
@@ -78,7 +78,7 @@ export default function Home() {
 
         <Features />
 
-        <section className="hidden md:flex py-24 bg-transparent border-t border-b border-border relative overflow-hidden justify-center items-center">
+        <section className="hidden md:flex py-24 bg-transparent relative overflow-hidden justify-center items-center">
           {/* Ambient subtle glow */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] rounded-full bg-accent-lime/5 blur-[80px] pointer-events-none" />
 
@@ -90,7 +90,7 @@ export default function Home() {
               <p className="text-text-secondary text-base leading-relaxed mb-8 max-w-2xl mx-auto">
                 Schedule a free, no-obligation discovery call. We&apos;ll map out your current workflows and identify the highest impact automation opportunities.
               </p>
-              <Button variant="primary" href="https://www.instagram.com/velloxa.agency/">
+              <Button variant="primary" href="/contact">
                 Book a Free Discovery Call
               </Button>
             </div>

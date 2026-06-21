@@ -87,14 +87,14 @@ export default function Contact() {
   };
 
   const socials = [
-    { icon: <InstagramIcon size={18} />, href: "https://www.instagram.com/velloxa.agency/", name: "Instagram" },
+    { icon: <InstagramIcon size={20} className="w-5 h-5" />, href: "https://www.instagram.com/velloxa.agency/", name: "Instagram" },
   ];
 
   return (
     <>
       <Navbar />
 
-      <section className="relative py-20 overflow-hidden border-b border-border">
+      <section className="relative py-20 overflow-hidden">
         
         {/* A subtle dark overlay to ensure text remains highly readable against the vibrant gradient */}
         <div className="absolute inset-0 z-0 bg-bg-primary/40 backdrop-blur-[2px]"></div>
@@ -120,7 +120,7 @@ export default function Contact() {
             className="max-w-3xl mx-auto space-y-8"
           >
             {/* Left Column: Form */}
-            <div className="glass-panel !bg-bg-primary/40 !backdrop-blur-[2px] rounded-2xl p-6 md:p-8 shadow-2xl">
+            <div className="glass-panel !bg-bg-primary/40 !backdrop-blur-[2px] rounded-2xl p-4 sm:p-6 md:p-8 shadow-2xl">
               <AnimatePresence mode="wait">
                 {submitStatus?.type === "success" ? (
                   <motion.div
@@ -296,7 +296,7 @@ export default function Contact() {
             </div>
 
             {/* Direct Channels (placed below the form) */}
-            <div className="glass-panel !bg-bg-primary/40 !backdrop-blur-[2px] rounded-2xl p-6 space-y-4 shadow-2xl">
+            <div className="glass-panel !bg-bg-primary/40 !backdrop-blur-[2px] rounded-2xl p-4 sm:p-6 md:p-8 space-y-4 shadow-2xl">
               <h3 className="font-display font-semibold text-base text-text-primary">
                 Direct Channels
               </h3>
@@ -346,7 +346,7 @@ export default function Contact() {
                 </a>
               </div>
 
-              <div className="border-t border-border pt-4 flex items-center justify-between">
+              <div className="pt-4 flex items-center justify-between">
                 <span className="text-xs text-text-secondary">Follow us:</span>
                 <div className="flex gap-3">
                   {socials.map((social) => (
@@ -355,10 +355,12 @@ export default function Contact() {
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-text-secondary hover:text-accent-lime transition-colors"
+                      className="text-text-secondary hover:text-accent-lime hover:scale-110 duration-300 transition-all"
                       aria-label={social.name}
                     >
-                      {social.icon}
+                      <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 hover:border-accent-lime/30 hover:bg-white/10 flex items-center justify-center transition-all duration-300">
+                        {social.icon}
+                      </div>
                     </a>
                   ))}
                 </div>
