@@ -2,7 +2,7 @@
 import React from "react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
-import { InstagramIcon } from "@/components/SocialIcons";
+import Image from "next/image";
 import { GridPattern } from "@/components/ui/grid-pattern";
 
 interface FooterLink {
@@ -23,7 +23,7 @@ interface FooterProps {
   navLinks?: FooterLink[];
   creatorName?: string;
   creatorUrl?: string;
-  brandIcon?: React.ReactNode;
+
   className?: string;
 }
 
@@ -43,7 +43,6 @@ export const Footer = ({
   navLinks = defaultNavLinks,
   creatorName,
   creatorUrl,
-  brandIcon,
   className,
 }: FooterProps) => {
   return (
@@ -59,9 +58,11 @@ export const Footer = ({
                       href="/"
                       className="flex items-center hover:opacity-80 transition-opacity"
                     >
-                      <img
+                      <Image
                         src="/velloxa-logo.svg"
                         alt="Velloxa Logo"
+                        width={120}
+                        height={48}
                         className="h-12 w-auto object-contain"
                       />
                     </Link>

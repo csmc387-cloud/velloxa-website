@@ -67,7 +67,7 @@ export default function TermsAndConditions() {
                 You agree to use this website and our services for lawful purposes only. You must not:
               </p>
               <ul className="list-disc pl-6 space-y-2">
-                <li>Attempt to bypass, disable, or tamper with the website's security, API endpoints, or contact forms.</li>
+                <li>Attempt to bypass, disable, or tamper with the website&apos;s security, API endpoints, or contact forms.</li>
                 <li>Provide false or misleading information in contact forms or during scheduling calls.</li>
                 <li>Upload or transmit any malicious software, viruses, or harmful scripts.</li>
               </ul>

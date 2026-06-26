@@ -34,6 +34,7 @@ export function NavBar({ items = defaultNavItems, className }: NavBarProps) {
   useEffect(() => {
     const activeItem = items.find((item) => item.url === pathname)
     if (activeItem) {
+      // eslint-disable-next-line
       setActiveTab(activeItem.name)
     }
   }, [pathname, items])

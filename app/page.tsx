@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import Button from "@/components/Button";
+
 import StartProjectButton from "@/components/StartProjectButton";
 
 import StatCounter from "@/components/StatCounter";

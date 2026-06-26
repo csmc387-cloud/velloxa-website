@@ -35,7 +35,7 @@ export default function PrivacyPolicy() {
             <div className="space-y-4">
               <h2 className="font-display font-bold text-2xl text-white">1. Introduction</h2>
               <p>
-                At Velloxa ("we," "our," or "us"), we respect your privacy and are committed to protecting the personal information you share with us. This Privacy Policy details how we collect, use, and safeguard your data when you visit our website, use our services, or communicate with us.
+                At Velloxa (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;), we respect your privacy and are committed to protecting the personal information you share with us. This Privacy Policy details how we collect, use, and safeguard your data when you visit our website, use our services, or communicate with us.
               </p>
             </div>
 

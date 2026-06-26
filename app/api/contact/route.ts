@@ -2,6 +2,7 @@ import { NextResponse, NextRequest } from "next/server";
 import { z } from "zod";
 import fs from "fs";
 import path from "path";
+import * as xlsx from "xlsx";
 
 // Simple in-memory rate limiting map
 // key: IP, value: timestamp array
@@ -65,7 +66,7 @@ export async function POST(request: NextRequest) {
     
     try {
       if (fs.existsSync(readFilePath)) {
-        const xlsx = require("xlsx");
+
         const fileBuffer = fs.readFileSync(readFilePath);
         const workbook = xlsx.read(fileBuffer, { type: "buffer" });
         const sheetName = workbook.SheetNames[0];
@@ -82,9 +83,10 @@ export async function POST(request: NextRequest) {
         console.error("Client Intake Form not found at", readFilePath);
         return NextResponse.json({ message: "Excel file not found at " + readFilePath }, { status: 500 });
       }
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error("Error writing to Excel file", err);
-      return NextResponse.json({ message: "Error writing to Excel file: " + err.message }, { status: 500 });
+      const errorMessage = err instanceof Error ? err.message : String(err);
+      return NextResponse.json({ message: "Error writing to Excel file: " + errorMessage }, { status: 500 });
     }
 
     // 4. Return Success Response

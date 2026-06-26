@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react'
+import React from 'react'
 import Link from 'next/link'
 
 interface StartProjectButtonProps {
@@ -21,8 +21,6 @@ export default function StartProjectButton({
   onClick,
   children
 }: StartProjectButtonProps) {
-  const [isHovered, setIsHovered] = useState(false)
-  const [isPressed, setIsPressed] = useState(false)
 
   // Default href to "/contact" unless this is a submit button or has an onClick handler
   const targetHref = (type === "submit" || onClick) ? href : (href ?? "/contact");
@@ -64,13 +62,6 @@ export default function StartProjectButton({
 
   const sharedProps = {
     className: baseClasses,
-    onMouseEnter: () => setIsHovered(true),
-    onMouseLeave: () => {
-      setIsHovered(false)
-      setIsPressed(false)
-    },
-    onMouseDown: () => setIsPressed(true),
-    onMouseUp: () => setIsPressed(false),
     onClick: onClick
   };
 

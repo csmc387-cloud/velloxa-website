@@ -127,7 +127,7 @@ export default function Services() {
       </section>
 
       <div className="flex flex-col relative w-full pt-28 md:pt-28">
-        {servicesData.map((service, index) => (
+        {servicesData.map((service) => (
           <ContainerScroll
             key={service.id}
             titleComponent={

@@ -7,7 +7,7 @@ import * as z from "zod";
 import { motion, AnimatePresence } from "framer-motion";
 import { Mail, Phone, CheckCircle2, AlertCircle, ArrowUpRight, Loader2 } from "lucide-react";
 import { InstagramIcon } from "@/components/SocialIcons";
-import dynamic from "next/dynamic";
+
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Button from "@/components/Button";
@@ -76,7 +76,7 @@ export default function Contact() {
           message: result.message || "Something went wrong. Please try again.",
         });
       }
-    } catch (error) {
+    } catch {
       setSubmitStatus({
         type: "error",
         message: "Network error. Please check your connection and try again.",
@@ -105,11 +105,11 @@ export default function Contact() {
               Contact Us
             </span>
             <h1 className="font-display font-bold text-4xl sm:text-5xl md:text-6xl text-white tracking-tight mb-6 flex flex-wrap gap-x-3 gap-y-1 justify-center md:justify-start items-center">
-              <TextScramble className="text-white" as="span">Let's Build</TextScramble>
+              <TextScramble className="text-white" as="span">Let&apos;s Build</TextScramble>
               <TextScramble className="text-accent-lime" as="span">Your System</TextScramble>
             </h1>
             <p className="text-white/80 text-base md:text-lg leading-relaxed">
-              Have a project in mind? Whether you're looking for passion-driven marketing or bespoke web development, fill out the brief form below and send it to us to get started.
+              Have a project in mind? Whether you&apos;re looking for passion-driven marketing or bespoke web development, fill out the brief form below and send it to us to get started.
             </p>
           </div>
 
@@ -286,7 +286,7 @@ export default function Contact() {
 
                     {/* reCAPTCHA disclaimer */}
                     <p className="text-[11px] text-text-secondary text-center leading-relaxed">
-                      This form is protected by reCAPTCHA v3 compliance. Google's{" "}
+                      This form is protected by reCAPTCHA v3 compliance. Google&apos;s{" "}
                       <a href="#" className="underline hover:text-accent-lime">Privacy Policy</a> and{" "}
                       <a href="#" className="underline hover:text-accent-lime">Terms of Service</a> apply.
                     </p>
