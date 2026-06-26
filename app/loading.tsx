@@ -1,12 +1,12 @@
 export default function Loading() {
   return (
-    <div className="min-h-screen w-full flex flex-col relative overflow-hidden bg-bg-primary/30 pt-20">
+    <div className="min-h-screen w-full flex flex-col relative overflow-hidden pt-20">
       {/* Ambient subtle glow to match the site's premium feel */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] rounded-full bg-accent-lime/5 blur-[100px] pointer-events-none" />
       <div className="absolute bottom-1/4 left-1/3 w-[300px] h-[300px] rounded-full bg-accent-cyan/5 blur-[90px] pointer-events-none" />
 
       {/* Navbar skeleton */}
-      <header className="fixed top-0 left-0 w-full border-b border-white/5 bg-bg-primary/40 backdrop-blur-md z-50 h-16 flex items-center justify-between px-6 md:px-12">
+      <header className="fixed top-0 left-0 w-full border-b border-white/5 z-50 h-16 flex items-center justify-between px-6 md:px-12">
         <div className="h-6 w-28 bg-white/10 rounded-md animate-pulse" />
         <div className="hidden md:flex gap-6">
           <div className="h-4 w-16 bg-white/10 rounded-sm animate-pulse" />
@@ -28,7 +28,7 @@ export default function Loading() {
         {/* Card Grids Skeleton */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full mt-8">
           {[1, 2, 3].map((i) => (
-            <div key={i} className="border border-white/10 bg-bg-primary/40 backdrop-blur-[2px] rounded-2xl p-6 md:p-8 flex flex-col justify-between space-y-8 animate-pulse h-64">
+            <div key={i} className="border border-white/10 rounded-2xl p-6 md:p-8 flex flex-col justify-between space-y-8 animate-pulse h-64">
               <div className="size-12 rounded-full border border-white/10 bg-white/5 flex items-center justify-center">
                 <div className="size-5 rounded-full bg-accent-lime/20" />
               </div>
@@ -44,7 +44,7 @@ export default function Loading() {
         {/* Larger Feature Skeleton */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full mt-6">
           {[1, 2].map((i) => (
-            <div key={i} className="border border-white/10 bg-bg-primary/40 backdrop-blur-[2px] rounded-2xl p-6 md:p-8 flex flex-col justify-between space-y-6 animate-pulse h-80">
+            <div key={i} className="border border-white/10 rounded-2xl p-6 md:p-8 flex flex-col justify-between space-y-6 animate-pulse h-80">
               <div className="size-12 rounded-full border border-white/10 bg-white/5 flex items-center justify-center">
                 <div className="size-5 rounded-full bg-accent-cyan/20" />
               </div>

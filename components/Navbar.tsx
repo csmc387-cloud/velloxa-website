@@ -45,7 +45,7 @@ export function NavBar({ items = defaultNavItems, className }: NavBarProps) {
         className,
       )}
     >
-      <div className="flex items-center gap-3 bg-bg-primary/40 border border-white/12 backdrop-blur-[2px] py-1.5 px-1.5 rounded-full shadow-lg">
+      <div className="flex items-center gap-3 border border-white/12 py-1.5 px-1.5 rounded-full shadow-lg bg-black/20 backdrop-blur-md">
         {items.map((item) => {
           const Icon = item.icon
           const isActive = activeTab === item.name

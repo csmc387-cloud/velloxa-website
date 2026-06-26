@@ -105,10 +105,10 @@ export default function Services() {
       <Navbar />
 
       <section className="relative pt-20 pb-16 overflow-hidden">
-        <div className="absolute inset-0 z-0 bg-bg-primary/40 backdrop-blur-[2px]"></div>
+        {/* Removed dark overlay */}
 
         <div className="max-w-[1280px] mx-auto px-4 md:px-8 z-10 relative text-center flex flex-col items-center">
-          <div className="max-w-3xl mx-auto flex flex-col items-center">
+          <div className="max-w-3xl mx-auto flex flex-col items-center bg-black/20 backdrop-blur-md border border-white/10 rounded-3xl p-8 sm:p-12 shadow-2xl">
             <span className="text-accent-lime font-display font-semibold uppercase tracking-wider text-xs md:text-sm mb-4 block">
               What We Do
             </span>
@@ -119,14 +119,14 @@ export default function Services() {
               <TextScramble className="text-accent-lime" as="span">Growing</TextScramble>
               <TextScramble className="text-white" as="span">SMEs</TextScramble>
             </h1>
-            <p className="text-white text-base leading-relaxed max-w-2xl mx-auto">
+            <p className="text-white/80 text-base leading-relaxed max-w-2xl mx-auto">
               We leverage modern technology, clean code, and authentic communication to optimize your operations and capture search traffic.
             </p>
           </div>
         </div>
       </section>
 
-      <div className="flex flex-col relative w-full bg-bg-primary/40 pt-28 md:pt-28">
+      <div className="flex flex-col relative w-full pt-28 md:pt-28">
         {servicesData.map((service, index) => (
           <ContainerScroll
             key={service.id}
@@ -139,7 +139,7 @@ export default function Services() {
           >
             <div className="w-full h-full p-3 md:p-6 flex flex-col gap-6 md:gap-8 bg-transparent text-white overflow-y-auto scrollbar-none">
               <div className="col-span-full pb-1 flex flex-col items-center gap-4 text-center mt-1">
-                <Card className="!border-2 !border-white/12 hover:!border-accent-cyan hover:!shadow-[0_8px_30px_rgba(0,255,204,0.25)] !bg-bg-primary/40 !backdrop-blur-[2px] max-w-full lg:max-w-xl w-full flex-shrink-0 mx-auto text-center">
+                <Card className="!border-2 !border-white/12 hover:!border-accent-cyan hover:!shadow-[0_8px_30px_rgba(0,255,204,0.25)] max-w-full lg:max-w-xl w-full flex-shrink-0 mx-auto text-center">
                   <div className="flex items-center justify-center gap-3 mb-3">
                     <div className="text-accent-lime font-display font-bold text-2xl">
                       {service.caseStudy.metric}

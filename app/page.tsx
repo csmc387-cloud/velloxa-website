@@ -23,8 +23,7 @@ export default function Home() {
         {/* Hero Section */}
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden py-20">
 
-          {/* A subtle dark overlay to ensure text remains highly readable against the vibrant gradient */}
-          <div className="absolute inset-0 z-0 bg-bg-primary/40 backdrop-blur-[2px]"></div>
+          {/* Removed dark overlay to show full gradient */}
 
           <div className="max-w-[1280px] w-full mx-auto px-4 md:px-8 z-10 text-center">
             
@@ -84,7 +83,7 @@ export default function Home() {
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] rounded-full bg-accent-lime/5 blur-[80px] pointer-events-none" />
 
           <div className="max-w-4xl w-full mx-auto px-4 z-10 relative">
-            <div className="glass-panel !bg-bg-primary/40 !backdrop-blur-[2px] rounded-2xl p-12 md:p-16 text-center shadow-2xl">
+            <div className="bg-black/20 backdrop-blur-md border border-white/10 rounded-3xl p-12 md:p-16 text-center shadow-2xl">
               <h2 className="font-display font-bold text-3xl md:text-5xl text-accent-lime tracking-tight mb-6">
                 Ready to integrate AI into your business?
               </h2>

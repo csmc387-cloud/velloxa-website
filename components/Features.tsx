@@ -39,7 +39,7 @@ export function Features() {
                             variants={cardVariants}
                             className="col-span-full lg:col-span-2 cursor-pointer"
                         >
-                            <Card className="relative overflow-hidden h-full !border-2 !border-white/12 hover:!border-accent-lime !bg-bg-primary/40 !backdrop-blur-[2px] transition-all duration-300 ease-out hover:-translate-y-1 hover:!shadow-[0_8px_30px_rgba(186,255,122,0.25)]">
+                            <Card className="relative overflow-hidden h-full !border-2 !border-white/12 hover:!border-accent-lime transition-all duration-300 ease-out hover:-translate-y-1 hover:!shadow-[0_8px_30px_rgba(186,255,122,0.25)]">
                                 <CardContent className="p-6 lg:p-8 pt-6 lg:pt-8 h-full flex flex-col justify-between space-y-12 lg:space-y-8">
                                     <div className="relative flex aspect-square size-12 rounded-full border border-border before:absolute before:-inset-2 before:rounded-full before:border before:border-white/5">
                                         <Brain className="m-auto size-5 text-accent-lime" strokeWidth={1} />
@@ -56,7 +56,7 @@ export function Features() {
                             variants={cardVariants}
                             className="col-span-full sm:col-span-3 lg:col-span-2 cursor-pointer"
                         >
-                            <Card className="relative overflow-hidden h-full !border-2 !border-white/12 hover:!border-accent-lime !bg-bg-primary/40 !backdrop-blur-[2px] transition-all duration-300 ease-out hover:-translate-y-1 hover:!shadow-[0_8px_30px_rgba(186,255,122,0.25)]">
+                            <Card className="relative overflow-hidden h-full !border-2 !border-white/12 hover:!border-accent-lime transition-all duration-300 ease-out hover:-translate-y-1 hover:!shadow-[0_8px_30px_rgba(186,255,122,0.25)]">
                                 <CardContent className="p-6 lg:p-8 pt-6 lg:pt-8 h-full flex flex-col justify-between space-y-12 lg:space-y-8">
                                     <div className="relative flex aspect-square size-12 rounded-full border border-border before:absolute before:-inset-2 before:rounded-full before:border before:border-white/5">
                                         <Code className="m-auto size-5 text-accent-lime" strokeWidth={1} />
@@ -73,7 +73,7 @@ export function Features() {
                             variants={cardVariants}
                             className="col-span-full sm:col-span-3 lg:col-span-2 cursor-pointer"
                         >
-                            <Card className="relative overflow-hidden h-full !border-2 !border-white/12 hover:!border-accent-lime !bg-bg-primary/40 !backdrop-blur-[2px] transition-all duration-300 ease-out hover:-translate-y-1 hover:!shadow-[0_8px_30px_rgba(186,255,122,0.25)]">
+                            <Card className="relative overflow-hidden h-full !border-2 !border-white/12 hover:!border-accent-lime transition-all duration-300 ease-out hover:-translate-y-1 hover:!shadow-[0_8px_30px_rgba(186,255,122,0.25)]">
                                 <CardContent className="p-6 lg:p-8 pt-6 lg:pt-8 h-full flex flex-col justify-between space-y-12 lg:space-y-8">
                                     <div className="relative flex aspect-square size-12 rounded-full border border-border before:absolute before:-inset-2 before:rounded-full before:border before:border-white/5">
                                         <TrendingUp className="m-auto size-5 text-accent-lime" strokeWidth={1} />
@@ -90,7 +90,7 @@ export function Features() {
                             variants={cardVariants}
                             className="col-span-full lg:col-span-3 cursor-pointer"
                         >
-                            <Card className="relative overflow-hidden h-full !border-2 !border-white/12 hover:!border-accent-lime !bg-bg-primary/40 !backdrop-blur-[2px] transition-all duration-300 ease-out hover:-translate-y-1 hover:!shadow-[0_8px_30px_rgba(186,255,122,0.25)]">
+                            <Card className="relative overflow-hidden h-full !border-2 !border-white/12 hover:!border-accent-lime transition-all duration-300 ease-out hover:-translate-y-1 hover:!shadow-[0_8px_30px_rgba(186,255,122,0.25)]">
                                 <CardContent className="grid p-6 lg:p-8 pt-6 lg:pt-8 sm:grid-cols-2">
                                     <div className="relative z-10 flex flex-col justify-between space-y-12 lg:space-y-8">
                                         <div className="relative flex aspect-square size-12 rounded-full border border-border before:absolute before:-inset-2 before:rounded-full before:border before:border-white/5">
@@ -101,7 +101,7 @@ export function Features() {
                                             <p className="text-text-secondary text-sm">We design and build systems engineered to scale with your user growth and data demands, ensuring peak performance under any load.</p>
                                         </div>
                                     </div>
-                                    <div className="rounded-tl-[12px] relative -mb-6 -mr-6 mt-6 h-fit border-l border-t border-white/12 p-6 py-6 sm:ml-6 bg-black/75 backdrop-blur-md">
+                                    <div className="rounded-tl-[12px] relative -mb-6 -mr-6 mt-6 h-fit border-l border-t border-white/12 p-6 py-6 sm:ml-6 bg-black/20 backdrop-blur-md">
                                         <div className="absolute left-3 top-2 flex gap-1">
                                             <span className="block size-2 rounded-full border border-white/10 bg-white/10"></span>
                                             <span className="block size-2 rounded-full border border-white/10 bg-white/10"></span>
@@ -131,7 +131,7 @@ export function Features() {
                             variants={cardVariants}
                             className="col-span-full lg:col-span-3 cursor-pointer"
                         >
-                            <Card className="relative overflow-hidden h-full !border-2 !border-white/12 hover:!border-accent-lime !bg-bg-primary/40 !backdrop-blur-[2px] transition-all duration-300 ease-out hover:-translate-y-1 hover:!shadow-[0_8px_30px_rgba(186,255,122,0.25)]">
+                            <Card className="relative overflow-hidden h-full !border-2 !border-white/12 hover:!border-accent-lime transition-all duration-300 ease-out hover:-translate-y-1 hover:!shadow-[0_8px_30px_rgba(186,255,122,0.25)]">
                                 <CardContent className="grid h-full p-6 lg:p-8 pt-6 lg:pt-8">
                                     <div className="relative z-10 flex flex-col justify-start space-y-6 lg:space-y-8">
                                         <div className="relative flex aspect-square size-12 rounded-full border border-border before:absolute before:-inset-2 before:rounded-full before:border before:border-white/5">

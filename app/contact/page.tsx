@@ -97,10 +97,10 @@ export default function Contact() {
       <section className="relative py-20 overflow-hidden">
         
         {/* A subtle dark overlay to ensure text remains highly readable against the vibrant gradient */}
-        <div className="absolute inset-0 z-0 bg-bg-primary/40 backdrop-blur-[2px]"></div>
+        {/* Removed dark overlay */}
 
         <div className="max-w-[1280px] mx-auto px-4 md:px-8 z-10 relative">
-          <div className="text-center md:text-left max-w-3xl mb-12">
+          <div className="max-w-3xl mb-12 bg-black/20 backdrop-blur-md border border-white/10 rounded-3xl p-8 sm:p-10 shadow-2xl text-center md:text-left">
             <span className="text-accent-lime font-display font-semibold uppercase tracking-wider text-xs md:text-sm mb-4 block">
               Contact Us
             </span>
@@ -108,7 +108,7 @@ export default function Contact() {
               <TextScramble className="text-white" as="span">Let's Build</TextScramble>
               <TextScramble className="text-accent-lime" as="span">Your System</TextScramble>
             </h1>
-            <p className="text-text-secondary text-base md:text-lg leading-relaxed">
+            <p className="text-white/80 text-base md:text-lg leading-relaxed">
               Have a project in mind? Whether you're looking for passion-driven marketing or bespoke web development, fill out the brief form below and send it to us to get started.
             </p>
           </div>
@@ -120,7 +120,7 @@ export default function Contact() {
             className="max-w-3xl mx-auto space-y-8"
           >
             {/* Left Column: Form */}
-            <div className="glass-panel !bg-bg-primary/40 !backdrop-blur-[2px] rounded-2xl p-4 sm:p-6 md:p-8 !shadow-none">
+            <div className="bg-black/20 backdrop-blur-md border border-white/10 rounded-3xl p-6 sm:p-8 md:p-10 shadow-2xl">
               <AnimatePresence mode="wait">
                 {submitStatus?.type === "success" ? (
                   <motion.div
@@ -174,9 +174,9 @@ export default function Contact() {
                         id="name"
                         type="text"
                         {...register("name")}
-                        className={`w-full bg-black/75 backdrop-blur-md border ${
-                          errors.name ? "border-red-500/40 focus:border-red-500 focus:ring-1 focus:ring-red-500/20" : "border-white/12 focus:border-accent-lime focus:ring-1 focus:ring-accent-lime/20"
-                        } rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:bg-black/85 transition-all duration-150`}
+                        className={`w-full bg-black/20 backdrop-blur-md border ${
+                          errors.name ? "border-red-500/50" : "border-white/12 focus:border-accent-lime focus:ring-1 focus:ring-accent-lime/20"
+                        } rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:bg-black/40 transition-all duration-150`}
                         placeholder="e.g. Marcus Aurelius"
                       />
                       {errors.name && (
@@ -193,9 +193,9 @@ export default function Contact() {
                         id="email"
                         type="email"
                         {...register("email")}
-                        className={`w-full bg-black/75 backdrop-blur-md border ${
-                          errors.email ? "border-red-500/40 focus:border-red-500 focus:ring-1 focus:ring-red-500/20" : "border-white/12 focus:border-accent-lime focus:ring-1 focus:ring-accent-lime/20"
-                        } rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:bg-black/85 transition-all duration-150`}
+                        className={`w-full bg-black/20 backdrop-blur-md border ${
+                          errors.email ? "border-red-500/50" : "border-white/12 focus:border-accent-lime focus:ring-1 focus:ring-accent-lime/20"
+                        } rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:bg-black/40 transition-all duration-150`}
                         placeholder="e.g. marcus@empire.com"
                       />
                       {errors.email && (
@@ -212,7 +212,7 @@ export default function Contact() {
                         id="company"
                         type="text"
                         {...register("company")}
-                        className="w-full bg-black/75 backdrop-blur-md border border-white/12 focus:border-accent-lime focus:ring-1 focus:ring-accent-lime/20 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:bg-black/85 transition-all duration-150"
+                        className="w-full bg-black/20 backdrop-blur-md border border-white/12 focus:border-accent-lime focus:ring-1 focus:ring-accent-lime/20 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:bg-black/40 transition-all duration-150"
                         placeholder="e.g. Rome Logistics"
                       />
                     </div>
@@ -225,9 +225,9 @@ export default function Contact() {
                       <select
                         id="serviceInterest"
                         {...register("serviceInterest")}
-                        className={`w-full bg-black/75 backdrop-blur-md border ${
-                          errors.serviceInterest ? "border-red-500/40 focus:border-red-500 focus:ring-1 focus:ring-red-500/20" : "border-white/12 focus:border-accent-lime focus:ring-1 focus:ring-accent-lime/20"
-                        } rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:bg-black/85 transition-all duration-150 appearance-none cursor-pointer`}
+                        className={`w-full bg-black/20 backdrop-blur-md border ${
+                          errors.serviceInterest ? "border-red-500/50" : "border-white/12 focus:border-accent-lime focus:ring-1 focus:ring-accent-lime/20"
+                        } rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:bg-black/40 transition-all duration-150 appearance-none cursor-pointer`}
                       >
                         <option value="" disabled className="bg-bg-surface">Select a service...</option>
                         <option value="AI Integration" className="bg-bg-surface">AI Integration & Automation</option>
@@ -249,9 +249,9 @@ export default function Contact() {
                         id="message"
                         rows={5}
                         {...register("message")}
-                        className={`w-full bg-black/75 backdrop-blur-md border ${
-                          errors.message ? "border-red-500/40 focus:border-red-500 focus:ring-1 focus:ring-red-500/20" : "border-white/12 focus:border-accent-lime focus:ring-1 focus:ring-accent-lime/20"
-                        } rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:bg-black/85 transition-all duration-150 resize-y`}
+                        className={`w-full bg-black/20 backdrop-blur-md border ${
+                          errors.message ? "border-red-500/50" : "border-white/12 focus:border-accent-lime focus:ring-1 focus:ring-accent-lime/20"
+                        } rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:bg-black/40 transition-all duration-150 resize-y`}
                         placeholder="Tell us about the workflows you want to automate or your web requirements..."
                       />
                       {errors.message && (
@@ -296,7 +296,7 @@ export default function Contact() {
             </div>
 
             {/* Direct Channels (placed below the form) */}
-            <div className="glass-panel !bg-bg-primary/40 !backdrop-blur-[2px] rounded-2xl p-4 sm:p-6 md:p-8 space-y-4 !shadow-none">
+            <div className="bg-black/20 backdrop-blur-md border border-white/10 rounded-3xl p-6 sm:p-8 space-y-4 shadow-2xl">
               <h3 className="font-display font-semibold text-base text-text-primary">
                 Direct Channels
               </h3>

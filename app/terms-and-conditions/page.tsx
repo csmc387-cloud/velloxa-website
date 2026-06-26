@@ -12,7 +12,7 @@ export default function TermsAndConditions() {
 
       <section className="relative py-20 overflow-hidden min-h-[30vh] flex items-center">
         {/* Subtle dark overlay */}
-        <div className="absolute inset-0 z-0 bg-bg-primary/40 backdrop-blur-[2px]"></div>
+        {/* Removed dark overlay */}
 
         <div className="max-w-[1280px] mx-auto px-4 md:px-8 z-10 relative text-center md:text-left w-full">
           <div className="max-w-3xl">
@@ -31,7 +31,7 @@ export default function TermsAndConditions() {
 
       <section className="py-20 bg-transparent">
         <div className="max-w-[1280px] mx-auto px-4 md:px-8 relative">
-          <div className="glass-panel !bg-bg-primary/40 !backdrop-blur-[2px] rounded-3xl p-8 md:p-12 shadow-2xl max-w-4xl mx-auto space-y-8 text-text-secondary text-sm md:text-base leading-relaxed">
+          <div className="glass-panel rounded-3xl p-8 md:p-12 shadow-2xl max-w-4xl mx-auto space-y-8 text-text-secondary text-sm md:text-base leading-relaxed">
             <div className="space-y-4">
               <h2 className="font-display font-bold text-2xl text-white">1. Acceptance of Terms</h2>
               <p>
