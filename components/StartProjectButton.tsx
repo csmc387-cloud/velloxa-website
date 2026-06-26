@@ -27,8 +27,14 @@ export default function StartProjectButton({
   // Default href to "/contact" unless this is a submit button or has an onClick handler
   const targetHref = (type === "submit" || onClick) ? href : (href ?? "/contact");
 
+  const hasCustomPadding = className.includes('px-') || className.includes('p-');
+  const hasCustomHeight = className.includes('h-');
+  const hasCustomTextSize = className.includes('text-');
+
   const widthClass = className.includes('w-') ? '' : 'w-fit';
-  const baseClasses = `group relative border-2 flex justify-center items-center gap-3 border-white/70 rounded-full px-6 h-12 
+  const baseClasses = `group relative border-2 flex justify-center items-center gap-3 border-white/70 rounded-full 
+                 ${hasCustomPadding ? '' : 'px-6'} 
+                 ${hasCustomHeight ? '' : 'h-12'} 
                  bg-white/10 transition-all duration-500 ease-out hover:border-accent-lime hover:shadow-lg hover:shadow-accent-lime/30 
                  hover:scale-105 active:scale-95 overflow-hidden backdrop-blur-sm z-10 whitespace-nowrap
                  before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent 
@@ -43,8 +49,9 @@ export default function StartProjectButton({
                       opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none'></div>
       
       {/* Text / Children */}
-      <span className='text-white font-medium tracking-wide text-sm transition-all duration-300 
-                       group-hover:text-accent-lime relative z-10 flex items-center justify-center gap-2 pointer-events-none'>
+      <span className={`text-white font-medium tracking-wide transition-all duration-300 
+                       ${hasCustomTextSize ? '' : 'text-sm'}
+                       group-hover:text-accent-lime relative z-10 flex items-center justify-center gap-2 pointer-events-none`}>
         {children || text}
       </span>
       

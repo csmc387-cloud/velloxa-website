@@ -1,14 +1,11 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { Cpu, Code2, Rocket, Check, ArrowRight, ArrowDown } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import Button from "@/components/Button";
 import Card from "@/components/Card";
 import { TextScramble } from "@/components/ui/text-scramble";
-
+import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 
 interface ProcessStep {
   name: string;
@@ -103,17 +100,11 @@ const servicesData: ServiceData[] = [
 ];
 
 export default function Services() {
-  const [activeTab, setActiveTab] = useState("ai");
-
-  const activeService = servicesData.find((s) => s.id === activeTab) || servicesData[0];
-
   return (
     <>
       <Navbar />
 
-      <section className="relative py-20 overflow-hidden">
-        
-        {/* A subtle dark overlay to ensure text remains highly readable against the vibrant gradient */}
+      <section className="relative pt-20 pb-16 overflow-hidden">
         <div className="absolute inset-0 z-0 bg-bg-primary/40 backdrop-blur-[2px]"></div>
 
         <div className="max-w-[1280px] mx-auto px-4 md:px-8 z-10 relative text-center flex flex-col items-center">
@@ -121,9 +112,12 @@ export default function Services() {
             <span className="text-accent-lime font-display font-semibold uppercase tracking-wider text-xs md:text-sm mb-4 block">
               What We Do
             </span>
-            <h1 className="font-display font-bold text-4xl sm:text-5xl md:text-7xl lg:text-8xl text-white tracking-tight mb-6 flex flex-wrap gap-x-3 gap-y-1 justify-center items-center">
-              <TextScramble className="text-white" as="span">Precision Solutions for</TextScramble>
-              <TextScramble className="text-accent-cyan" as="span">Growing SMEs</TextScramble>
+            <h1 className="font-display font-bold text-4xl sm:text-5xl md:text-7xl lg:text-8xl text-accent-lime tracking-tight mb-6 flex flex-wrap gap-x-3 gap-y-1 justify-center items-center">
+              <TextScramble className="text-accent-lime" as="span">Precision</TextScramble>
+              <TextScramble className="text-accent-cyan" as="span">Solutions</TextScramble>
+              <TextScramble className="text-accent-lime" as="span">for</TextScramble>
+              <TextScramble className="text-accent-lime" as="span">Growing</TextScramble>
+              <TextScramble className="text-white" as="span">SMEs</TextScramble>
             </h1>
             <p className="text-white text-base leading-relaxed max-w-2xl mx-auto">
               We leverage modern technology, clean code, and authentic communication to optimize your operations and capture search traffic.
@@ -132,78 +126,44 @@ export default function Services() {
         </div>
       </section>
 
-      {/* Tab Selector Section */}
-      <section className="bg-bg-primary/40 backdrop-blur-[2px] py-4">
-        <div className="max-w-[1280px] mx-auto px-4 md:px-8">
-          <div className="flex justify-center gap-2 md:gap-4 overflow-x-auto scrollbar-none py-2">
-            {servicesData.map((service) => (
-              <button
-                key={service.id}
-                onClick={() => setActiveTab(service.id)}
-                className={`flex items-center justify-center gap-2 px-4 md:px-5 py-2.5 rounded-[6px] font-display font-bold text-sm tracking-wide transition-all cursor-pointer whitespace-nowrap border ${
-                  activeTab === service.id
-                    ? "bg-accent-lime text-bg-primary border-accent-lime shadow-sm"
-                    : "bg-bg-primary/40 backdrop-blur-[2px] text-text-secondary border-white/12 hover:bg-bg-primary/60 hover:border-white/20 hover:text-white"
-                }`}
-              >
-                {service.icon}
-                <span className="hidden md:inline">{service.title}</span>
-              </button>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Active Service Content Section */}
-      <section className="py-20 bg-transparent min-h-[60vh]">
-        <div className="max-w-[1280px] mx-auto px-4 md:px-8 relative grid">
-          <AnimatePresence>
-            <motion.div
-              key={activeTab}
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -15 }}
-              transition={{ duration: 0.3 }}
-              className="col-start-1 row-start-1 glass-panel !bg-bg-primary/40 !backdrop-blur-[2px] rounded-3xl p-8 md:p-12 shadow-2xl grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start"
-            >
-              {/* Header Info: Title, Tagline and Case Study Highlight */}
-              <div className="col-span-full pb-8 flex flex-col items-center gap-8 text-center">
-                <div className="max-w-3xl">
-                  <h2 className="font-display font-bold text-4xl md:text-5xl text-text-primary mb-3">
-                    {activeService.title}
-                  </h2>
-                  <p className="text-accent-cyan font-sans text-sm font-semibold">
-                    {activeService.tagline}
-                  </p>
-                </div>
-                
-                <Card className="border-accent-cyan/30 hover:border-accent-cyan/80 !bg-bg-primary/40 !backdrop-blur-[2px] max-w-full lg:max-w-xl w-full flex-shrink-0 mx-auto text-center">
+      <div className="flex flex-col relative w-full bg-bg-primary/40 pt-28 md:pt-28">
+        {servicesData.map((service, index) => (
+          <ContainerScroll
+            key={service.id}
+            titleComponent={
+              <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-[4.5rem] font-bold leading-none text-accent-lime flex items-center justify-center gap-2">
+                <span className="scale-[1.1] xs:scale-[1.2] sm:scale-[1.3] md:scale-[1.2] origin-center transform block">{service.icon}</span>
+                <span>{service.title}</span>
+              </h1>
+            }
+          >
+            <div className="w-full h-full p-3 md:p-6 flex flex-col gap-6 md:gap-8 bg-transparent text-white overflow-y-auto scrollbar-none">
+              <div className="col-span-full pb-1 flex flex-col items-center gap-4 text-center mt-1">
+                <Card className="!border-2 !border-white/12 hover:!border-accent-cyan hover:!shadow-[0_8px_30px_rgba(0,255,204,0.25)] !bg-bg-primary/40 !backdrop-blur-[2px] max-w-full lg:max-w-xl w-full flex-shrink-0 mx-auto text-center">
                   <div className="flex items-center justify-center gap-3 mb-3">
                     <div className="text-accent-lime font-display font-bold text-2xl">
-                      {activeService.caseStudy.metric}
+                      {service.caseStudy.metric}
                     </div>
                     <span className="text-[9px] px-2 py-0.5 rounded-full bg-accent-cyan/15 text-accent-cyan font-display font-bold uppercase tracking-wider">
                       Impact Metrics
                     </span>
                   </div>
                   <p className="text-text-secondary text-xs leading-relaxed mx-auto max-w-md">
-                    {activeService.caseStudy.details}
+                    {service.caseStudy.details}
                   </p>
                 </Card>
               </div>
 
-              {/* Core details */}
-              <div className="col-span-full lg:col-span-12 flex flex-col items-center text-center">
-                <p className="text-text-secondary text-sm leading-relaxed mb-10 max-w-4xl mx-auto">
-                  {activeService.overview}
+              <div className="flex flex-col items-center text-center">
+                <p className="text-text-secondary text-sm md:text-base leading-relaxed mb-6 max-w-4xl mx-auto">
+                  {service.overview}
                 </p>
 
-                {/* Feature List */}
-                <h3 className="font-display font-semibold text-xl text-text-primary mb-6">
+                <h3 className="font-display font-semibold text-lg md:text-xl text-accent-lime mb-3">
                   Key Capabilities
                 </h3>
-                <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6 mb-8 w-full max-w-4xl mx-auto text-left">
-                  {activeService.features.map((feat) => (
+                <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4 w-full max-w-md md:max-w-3xl mx-auto text-left">
+                  {service.features.map((feat) => (
                     <li key={feat} className="flex gap-3 text-sm text-text-secondary leading-relaxed">
                       <div className="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full bg-accent-cyan/15 flex items-center justify-center text-accent-cyan">
                         <Check size={12} />
@@ -214,50 +174,47 @@ export default function Services() {
                 </ul>
               </div>
 
-              {/* Our Direct Process (Horizontal & Centered Layout) */}
-              <div className="col-span-full pt-10 mt-2">
-                <h3 className="font-display font-bold text-2xl text-text-primary mb-8 text-center">
+              <div className="pt-4 pb-6">
+                <h3 className="font-display font-bold text-xl md:text-2xl text-accent-lime mb-4 text-center">
                   Our Direct Process
                 </h3>
-                
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
-                  {activeService.process.map((step, idx) => (
-                    <div key={step.name} className="flex flex-col items-center text-center relative px-2">
-                      {/* Horizontal connecting line with arrow on tablet/desktop */}
-                      {idx !== activeService.process.length - 1 && (
-                        <div className="hidden sm:flex absolute top-0 h-8 left-[calc(50%+20px)] w-[calc(100%-40px)] items-center">
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
+                  {service.process.map((step, idx) => (
+                    <div key={step.name} className="flex flex-col items-center text-center relative w-full px-2">
+                      {idx !== service.process.length - 1 && (
+                        <div className="hidden md:flex absolute top-0 h-8 left-[calc(50%+20px)] w-[calc(100%-40px)] items-center">
                           <div className="flex-1 h-[1px] bg-gradient-to-r from-border/60 to-accent-lime/40" />
                           <ArrowRight className="w-3.5 h-3.5 text-accent-lime/60 -ml-1 flex-shrink-0" />
                         </div>
                       )}
-                      
-                      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-bg-surface border border-border flex items-center justify-center text-xs font-bold text-accent-lime z-10 mb-4 shadow-md transition-colors hover:border-accent-lime/60">
+
+                      <div className="flex-shrink-0 w-7 h-7 rounded-full bg-bg-surface border border-border flex items-center justify-center text-xs font-bold text-accent-lime z-10 mb-2 shadow-md transition-colors hover:border-accent-lime/60">
                         {idx + 1}
                       </div>
-                      
-                      <div className="space-y-2">
+
+                      <div className="space-y-1 px-4">
                         <h4 className="font-display font-semibold text-sm text-text-primary">
                           {step.name}
                         </h4>
-                        <p className="text-xs text-text-secondary leading-relaxed max-w-[180px] mx-auto">
+                        <p className="text-xs text-text-secondary leading-relaxed max-w-[220px] md:max-w-[180px] mx-auto">
                           {step.desc}
                         </p>
                       </div>
 
-                      {/* Vertical connecting arrow on mobile */}
-                      {idx !== activeService.process.length - 1 && (
-                        <div className="flex sm:hidden mt-5 -mb-1 text-accent-lime/40">
-                          <ArrowDown className="w-4 h-4 animate-pulse" />
+                      {idx !== service.process.length - 1 && (
+                        <div className="flex md:hidden mt-2 text-accent-lime/40">
+                          <ArrowDown className="w-3.5 h-3.5 animate-pulse" />
                         </div>
                       )}
                     </div>
                   ))}
                 </div>
               </div>
-            </motion.div>
-          </AnimatePresence>
-        </div>
-      </section>
+            </div>
+          </ContainerScroll>
+        ))}
+      </div>
 
       <Footer />
     </>

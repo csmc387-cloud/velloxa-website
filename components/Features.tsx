@@ -26,21 +26,21 @@ const cardVariants = {
 export function Features() {
     return (
         <section className="bg-transparent py-16 md:py-32">
-            <div className="mx-auto max-w-3xl lg:max-w-5xl px-6">
+            <div className="mx-auto max-w-3xl lg:max-w-[1280px] px-6">
                 <div className="relative">
                     <motion.div
                         variants={containerVariants}
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true, amount: 0.1 }}
-                        className="relative z-10 grid grid-cols-6 gap-3"
+                        className="relative z-10 grid grid-cols-6 gap-3 lg:gap-6"
                     >
                         <motion.div
                             variants={cardVariants}
                             className="col-span-full lg:col-span-2 cursor-pointer"
                         >
-                            <Card className="relative overflow-hidden h-full !bg-bg-primary/40 !backdrop-blur-[2px]">
-                                <CardContent className="p-6 pt-6 h-full flex flex-col justify-between space-y-12 lg:space-y-6">
+                            <Card className="relative overflow-hidden h-full !border-2 !border-white/12 hover:!border-accent-lime !bg-bg-primary/40 !backdrop-blur-[2px] transition-all duration-300 ease-out hover:-translate-y-1 hover:!shadow-[0_8px_30px_rgba(186,255,122,0.25)]">
+                                <CardContent className="p-6 lg:p-8 pt-6 lg:pt-8 h-full flex flex-col justify-between space-y-12 lg:space-y-8">
                                     <div className="relative flex aspect-square size-12 rounded-full border border-border before:absolute before:-inset-2 before:rounded-full before:border before:border-white/5">
                                         <Brain className="m-auto size-5 text-accent-lime" strokeWidth={1} />
                                     </div>
@@ -56,10 +56,10 @@ export function Features() {
                             variants={cardVariants}
                             className="col-span-full sm:col-span-3 lg:col-span-2 cursor-pointer"
                         >
-                            <Card className="relative overflow-hidden h-full !bg-bg-primary/40 !backdrop-blur-[2px]">
-                                <CardContent className="p-6 pt-6 h-full flex flex-col justify-between space-y-12 lg:space-y-6">
+                            <Card className="relative overflow-hidden h-full !border-2 !border-white/12 hover:!border-accent-lime !bg-bg-primary/40 !backdrop-blur-[2px] transition-all duration-300 ease-out hover:-translate-y-1 hover:!shadow-[0_8px_30px_rgba(186,255,122,0.25)]">
+                                <CardContent className="p-6 lg:p-8 pt-6 lg:pt-8 h-full flex flex-col justify-between space-y-12 lg:space-y-8">
                                     <div className="relative flex aspect-square size-12 rounded-full border border-border before:absolute before:-inset-2 before:rounded-full before:border before:border-white/5">
-                                        <Code className="m-auto size-5 text-accent-cyan" strokeWidth={1} />
+                                        <Code className="m-auto size-5 text-accent-lime" strokeWidth={1} />
                                     </div>
                                     <div className="space-y-2">
                                         <h2 className="text-lg font-medium text-white transition">Web Development</h2>
@@ -73,10 +73,10 @@ export function Features() {
                             variants={cardVariants}
                             className="col-span-full sm:col-span-3 lg:col-span-2 cursor-pointer"
                         >
-                            <Card className="relative overflow-hidden h-full !bg-bg-primary/40 !backdrop-blur-[2px]">
-                                <CardContent className="p-6 pt-6 h-full flex flex-col justify-between space-y-12 lg:space-y-6">
+                            <Card className="relative overflow-hidden h-full !border-2 !border-white/12 hover:!border-accent-lime !bg-bg-primary/40 !backdrop-blur-[2px] transition-all duration-300 ease-out hover:-translate-y-1 hover:!shadow-[0_8px_30px_rgba(186,255,122,0.25)]">
+                                <CardContent className="p-6 lg:p-8 pt-6 lg:pt-8 h-full flex flex-col justify-between space-y-12 lg:space-y-8">
                                     <div className="relative flex aspect-square size-12 rounded-full border border-border before:absolute before:-inset-2 before:rounded-full before:border before:border-white/5">
-                                        <TrendingUp className="m-auto size-5 text-purple-400" strokeWidth={1} />
+                                        <TrendingUp className="m-auto size-5 text-accent-lime" strokeWidth={1} />
                                     </div>
                                     <div className="space-y-2">
                                         <h2 className="text-lg font-medium text-white transition">Passion Marketing</h2>
@@ -90,9 +90,9 @@ export function Features() {
                             variants={cardVariants}
                             className="col-span-full lg:col-span-3 cursor-pointer"
                         >
-                            <Card className="relative overflow-hidden h-full !bg-bg-primary/40 !backdrop-blur-[2px]">
-                                <CardContent className="grid pt-6 sm:grid-cols-2">
-                                    <div className="relative z-10 flex flex-col justify-between space-y-12 lg:space-y-6">
+                            <Card className="relative overflow-hidden h-full !border-2 !border-white/12 hover:!border-accent-lime !bg-bg-primary/40 !backdrop-blur-[2px] transition-all duration-300 ease-out hover:-translate-y-1 hover:!shadow-[0_8px_30px_rgba(186,255,122,0.25)]">
+                                <CardContent className="grid p-6 lg:p-8 pt-6 lg:pt-8 sm:grid-cols-2">
+                                    <div className="relative z-10 flex flex-col justify-between space-y-12 lg:space-y-8">
                                         <div className="relative flex aspect-square size-12 rounded-full border border-border before:absolute before:-inset-2 before:rounded-full before:border before:border-white/5">
                                             <ArrowUpRight className="m-auto size-5 text-accent-lime" strokeWidth={1} />
                                         </div>
@@ -131,9 +131,9 @@ export function Features() {
                             variants={cardVariants}
                             className="col-span-full lg:col-span-3 cursor-pointer"
                         >
-                            <Card className="relative overflow-hidden h-full !bg-bg-primary/40 !backdrop-blur-[2px]">
-                                <CardContent className="grid h-full pt-6">
-                                    <div className="relative z-10 flex flex-col justify-start space-y-6">
+                            <Card className="relative overflow-hidden h-full !border-2 !border-white/12 hover:!border-accent-lime !bg-bg-primary/40 !backdrop-blur-[2px] transition-all duration-300 ease-out hover:-translate-y-1 hover:!shadow-[0_8px_30px_rgba(186,255,122,0.25)]">
+                                <CardContent className="grid h-full p-6 lg:p-8 pt-6 lg:pt-8">
+                                    <div className="relative z-10 flex flex-col justify-start space-y-6 lg:space-y-8">
                                         <div className="relative flex aspect-square size-12 rounded-full border border-border before:absolute before:-inset-2 before:rounded-full before:border before:border-white/5">
                                             <MessageSquare className="m-auto size-5 text-accent-lime" strokeWidth={1} />
                                         </div>

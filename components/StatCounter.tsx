@@ -9,6 +9,7 @@ interface StatCounterProps {
   suffix?: string;
   label: string;
   numberClassName?: string;
+  textSize?: string;
 }
 
 export default function StatCounter({
@@ -18,6 +19,7 @@ export default function StatCounter({
   suffix = "",
   label,
   numberClassName = "",
+  textSize = "text-4xl md:text-5xl lg:text-6xl",
 }: StatCounterProps) {
   const [count, setCount] = useState(0);
   const [hasAnimated, setHasAnimated] = useState(false);
@@ -53,7 +55,7 @@ export default function StatCounter({
 
   return (
     <div ref={elementRef} className="flex flex-col items-center justify-center p-4 text-center">
-      <div className={`font-display font-bold text-4xl md:text-5xl lg:text-6xl text-accent-lime tracking-tight ${numberClassName}`}>
+      <div className={`font-display font-bold text-accent-lime tracking-tight ${textSize} ${numberClassName}`}>
         {prefix}
         {count}
         {suffix}

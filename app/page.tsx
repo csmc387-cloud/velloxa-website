@@ -9,6 +9,7 @@ import StartProjectButton from "@/components/StartProjectButton";
 import StatCounter from "@/components/StatCounter";
 import { TextScramble } from "@/components/ui/text-scramble";
 import { Features } from "@/components/Features";
+import { Phone } from "lucide-react";
 
 
 export default function Home() {
@@ -69,9 +70,9 @@ export default function Home() {
         {/* Social Proof Bar */}
         <section className="bg-transparent py-12">
           <div className="max-w-[1280px] mx-auto px-4 md:px-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-4">
-              <StatCounter target={2} duration={1200} prefix="More than " suffix="×" label="Average Client ROI" numberClassName="opacity-60" />
-              <StatCounter target={100} duration={1200} suffix="%" label="On-Time Product Delivery" />
+            <div className="flex flex-col items-center justify-center gap-8">
+              <StatCounter target={2} duration={1200} prefix="More than " suffix="×" label="Average Client ROI" textSize="text-6xl md:text-7xl lg:text-8xl" />
+              <StatCounter target={100} duration={1200} suffix="%" label="On-Time Product Delivery" textSize="text-6xl md:text-7xl lg:text-8xl" />
             </div>
           </div>
         </section>
@@ -90,9 +91,10 @@ export default function Home() {
               <p className="text-text-secondary text-base leading-relaxed mb-8 max-w-2xl mx-auto">
                 Schedule a free, no-obligation discovery call. We&apos;ll map out your current workflows and identify the highest impact automation opportunities.
               </p>
-              <Button variant="primary" href="/contact">
-                Book a Free Discovery Call
-              </Button>
+              <StartProjectButton href="/contact" className="h-14 w-full text-base">
+                <Phone size={18} className="mr-1" />
+                Book a Call
+              </StartProjectButton>
             </div>
           </div>
         </section>

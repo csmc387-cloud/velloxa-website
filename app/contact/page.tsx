@@ -120,7 +120,7 @@ export default function Contact() {
             className="max-w-3xl mx-auto space-y-8"
           >
             {/* Left Column: Form */}
-            <div className="glass-panel !bg-bg-primary/40 !backdrop-blur-[2px] rounded-2xl p-4 sm:p-6 md:p-8 shadow-2xl">
+            <div className="glass-panel !bg-bg-primary/40 !backdrop-blur-[2px] rounded-2xl p-4 sm:p-6 md:p-8 !shadow-none">
               <AnimatePresence mode="wait">
                 {submitStatus?.type === "success" ? (
                   <motion.div
@@ -296,7 +296,7 @@ export default function Contact() {
             </div>
 
             {/* Direct Channels (placed below the form) */}
-            <div className="glass-panel !bg-bg-primary/40 !backdrop-blur-[2px] rounded-2xl p-4 sm:p-6 md:p-8 space-y-4 shadow-2xl">
+            <div className="glass-panel !bg-bg-primary/40 !backdrop-blur-[2px] rounded-2xl p-4 sm:p-6 md:p-8 space-y-4 !shadow-none">
               <h3 className="font-display font-semibold text-base text-text-primary">
                 Direct Channels
               </h3>

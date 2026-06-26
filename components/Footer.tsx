@@ -3,6 +3,7 @@ import React from "react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { InstagramIcon } from "@/components/SocialIcons";
+import { GridPattern } from "@/components/ui/grid-pattern";
 
 interface FooterLink {
   label: string;
@@ -129,6 +130,14 @@ export const Footer = ({
             )}
           </div>
         </div>
+
+        {/* Grid pattern background */}
+        <GridPattern
+          width={60}
+          height={60}
+          strokeDasharray="4 4"
+          className="stroke-white/[0.04] fill-white/[0.01] pointer-events-none absolute inset-0 h-full w-full [mask-image:radial-gradient(800px_circle_at_bottom,white,transparent)]"
+        />
 
         {/* Large background text */}
         <div
