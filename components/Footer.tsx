@@ -4,6 +4,29 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { GridPattern } from "@/components/ui/grid-pattern";
+import { motion, Variants } from "framer-motion";
+
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
+};
 
 interface FooterLink {
   label: string;
@@ -48,10 +71,16 @@ export const Footer = ({
   return (
     <section className={cn("relative w-full mt-0 overflow-hidden", className)}>
       <footer className="bg-bg-primary mt-20 relative">
-        <div className="max-w-7xl flex flex-col justify-between mx-auto min-h-[30rem] sm:min-h-[35rem] md:min-h-[40rem] relative z-10 p-4 py-10">
+        <motion.div 
+          className="max-w-7xl flex flex-col justify-between mx-auto min-h-[30rem] sm:min-h-[35rem] md:min-h-[40rem] relative z-10 p-4 py-10"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
           <div className="flex flex-col mb-12 sm:mb-20 md:mb-0 w-full">
             <div className="w-full flex flex-col items-center">
-              <div className="space-y-4 flex flex-col items-center flex-1">
+              <motion.div variants={itemVariants} className="space-y-4 flex flex-col items-center flex-1">
                 <div className="flex items-center gap-2">
                   {brandName === "Velloxa" ? (
                     <Link
@@ -75,10 +104,10 @@ export const Footer = ({
                 <p className="text-text-secondary font-medium text-center w-full max-w-sm sm:w-96 px-4 sm:px-0 text-sm leading-relaxed">
                   {brandDescription}
                 </p>
-              </div>
+              </motion.div>
 
               {socialLinks.length > 0 && (
-                <div className="flex mb-8 mt-6 gap-4">
+                <motion.div variants={itemVariants} className="flex mb-8 mt-6 gap-4">
                   {socialLinks.map((link, index) => (
                     <Link
                       key={index}
@@ -95,11 +124,11 @@ export const Footer = ({
                       <span className="sr-only">{link.label}</span>
                     </Link>
                   ))}
-                </div>
+                </motion.div>
               )}
 
               {navLinks.length > 0 && (
-                <div className="flex flex-wrap justify-center gap-6 text-sm font-semibold text-text-secondary max-w-full px-4 mt-8">
+                <motion.div variants={itemVariants} className="flex flex-wrap justify-center gap-6 text-sm font-semibold text-text-secondary max-w-full px-4 mt-8">
                   {navLinks.map((link, index) => (
                     <Link
                       key={index}
@@ -109,12 +138,12 @@ export const Footer = ({
                       {link.label}
                     </Link>
                   ))}
-                </div>
+                </motion.div>
               )}
             </div>
           </div>
 
-          <div className="mt-20 md:mt-24 flex flex-col gap-2 md:gap-1 items-center justify-center md:flex-row md:items-center md:justify-between px-4 md:px-0">
+          <motion.div variants={itemVariants} className="mt-20 md:mt-24 flex flex-col gap-2 md:gap-1 items-center justify-center md:flex-row md:items-center md:justify-between px-4 md:px-0">
             <p className="text-xs text-text-secondary text-center md:text-left">
               © {new Date().getFullYear()} {brandName}. All rights reserved.
             </p>
@@ -129,8 +158,8 @@ export const Footer = ({
                 </Link>
               </nav>
             )}
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* Grid pattern background */}
         <GridPattern
@@ -141,14 +170,18 @@ export const Footer = ({
         />
 
         {/* Large background text */}
-        <div
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.1 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
           className="bg-gradient-to-b from-white/10 via-white/5 to-transparent bg-clip-text text-transparent leading-none absolute left-0 right-0 bottom-0 font-extrabold tracking-tighter pointer-events-none select-none text-center whitespace-nowrap z-0"
           style={{
             fontSize: "clamp(6rem, 26vw, 40rem)",
           }}
         >
           {brandName.toUpperCase()}
-        </div>
+        </motion.div>
 
       </footer>
     </section>

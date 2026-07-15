@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { LucideIcon, Home, Briefcase, Mail } from "lucide-react"
+import { LucideIcon, Home, Mail } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 export interface NavItem {
@@ -20,7 +20,6 @@ export interface NavBarProps {
 
 const defaultNavItems: NavItem[] = [
   { name: "Home", url: "/", icon: Home },
-  { name: "Services", url: "/services", icon: Briefcase },
   { name: "Contact", url: "/contact", icon: Mail },
 ]
 
